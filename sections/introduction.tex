@@ -1,0 +1,19 @@
+\section{Introduction}\label{sec1}
+
+Multimodal learning aims to build models that relate information across heterogeneous data sources such as images, text and audio. Instead of processing each modality independently, multimodal models learn shared representations in which semantically related inputs lie close together. These representations underpin cross-modal retrieval, zero-shot recognition and, increasingly, conditional generation~\cite{radford2021clip,girdhar2023imagebind}.
+
+One application of this capability is context-aware audio generation from visual input. In games and virtual simulations, sound effects are usually authored in advance and bound manually to objects or events, which limits how far audio can adapt to new or procedurally generated scenes. A system that reads the visual context of an image (for example, a railway station with trains, announcements and crowds) and produces matching audio could make such environments more adaptive and immersive.
+
+Building such a system first requires understanding how visual, textual and acoustic signals are mapped into a common semantic space. Contrastive pre-training has become the dominant approach for this purpose. Contrastive Language--Image Pre-training (CLIP)~\cite{radford2021clip} aligns images and text, AudioCLIP~\cite{guzhov2022audioclip} extends CLIP with an audio branch, and Contrastive Language--Audio Pretraining (CLAP)~\cite{elizalde2023clap} aligns audio with natural-language captions. Their embeddings are now used directly as conditioning signals in audio generators~\cite{liu2023audioldm,sheffer2023im2wav,wang2024v2amapper}, which makes them a natural starting point for image-conditioned audio generation.
+
+This review addresses three research questions:
+
+\begin{enumerate}
+    \item \textbf{RQ1: How is a shared multimodal embedding space constructed across visual, textual and audio modalities?}
+    \item \textbf{RQ2: What training objectives and neural network architectures are employed for multimodal representation learning?}
+    \item \textbf{RQ3: What are the major challenges and limitations of existing multimodal architectures, and what do they imply for image-conditioned audio generation?}
+\end{enumerate}
+
+The contributions of this review are: (i) a unified formulation of the contrastive objective shared by CLIP, AudioCLIP and CLAP, with each model expressed as a special case; (ii) a side-by-side comparison of their architectures, training data and reported zero-shot results; (iii) a categorised analysis of their limitations; and (iv) a mapping from these representation models to existing image- and video-to-audio generators, identifying the gaps that remain for interactive applications.
+
+The remainder of the paper is organised as follows. Section~\ref{sec2} describes the review methodology. Section~\ref{sec3} introduces the general contrastive formulation. Section~\ref{sec4} analyses CLIP, AudioCLIP and CLAP individually and notes related models. Section~\ref{sec5} compares them and answers RQ1 and RQ2. Section~\ref{sec6} addresses RQ3. Section~\ref{sec7} connects representation learning to audio generation and outlines future directions, and Section~\ref{sec8} concludes.

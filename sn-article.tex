@@ -1,0 +1,522 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+% \documentclass[bst/sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+% \documentclass[pdflatex,bst/sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+
+\title[Title not decided]{Title not decided}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg}
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1]{\fnm{Lalith} \sur{Gunnu}}\email{lalithgunnu2202@gmail.com}
+
+\author[2]{\fnm{Kaustab} \sur{Karmakar}}
+
+\affil*[1]{\orgdiv{Department of Electronics and Instrumentation Engineering}, \orgname{National Institute of Technology Silchar}, \orgaddress{\city{Silchar}, \state{Assam}, \country{India}}}
+
+\affil[2]{\orgdiv{Department of Computer Science and Engineering}, \orgname{National Institute of Technology Silchar}, \orgaddress{\city{Silchar}, \state{Assam}, \country{India}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{Interactive media such as games and virtual environments still rely largely on manually designed sound assets, motivating systems that derive audio directly from visual context. This review examines contrastive multimodal representation learning as a foundation for such systems, focusing on three representative models: CLIP (image--text), AudioCLIP (image--text--audio) and CLAP (audio--text). It compares their modality-specific encoders, projection into shared embedding spaces, contrastive objectives, training data and reported zero-shot performance, and situates them alongside related models such as Wav2CLIP, LAION-CLAP and ImageBind. The analysis shows that all three rely on the same symmetric InfoNCE mechanism and that the quality of paired supervision, rather than dataset size alone, determines alignment quality. Recent image- and video-to-audio generators already use such embeddings as conditioning signals, but open problems remain in multi-source scene soundscapes, real-time generation, controllability and evaluation. The review summarises these gaps and motivates future work on context-aware audio generation for interactive environments.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+%
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+%
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+%
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{contrastive learning, multimodal representation learning, CLIP, CLAP, audio-visual learning, image-to-audio generation}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+%% ===================================================================
+\input{sections/introduction}
+%% ===================================================================
+\section{Review Methodology}\label{sec2}
+
+% NOTE TO AUTHORS: replace the bracketed details below with the actual
+% search process you followed (databases, dates, queries, counts).
+Literature was identified through searches of IEEE Xplore, the ACM Digital Library, the CVF Open Access repository, the PMLR proceedings and arXiv, covering publications from 2016 to 2026. Search terms combined ``contrastive learning'', ``multimodal'', ``audio--visual'', ``audio--language'', ``shared embedding'', ``CLIP'', ``CLAP'' and ``image-to-audio generation''. Backward and forward citation tracking from the CLIP paper~\cite{radford2021clip} was used to find derived audio models.
+
+Works were included if they (a) learn a joint embedding space between at least two of the image, text and audio modalities using a contrastive objective, or (b) generate audio conditioned on images or video using such embeddings. Works restricted to speech recognition, single-modality audio classification or text-only language modelling were excluded.
+
+CLIP, AudioCLIP and CLAP were selected for detailed analysis because together they cover the three modality pairs relevant to image-conditioned audio generation: image--text, image--audio and audio--text. They also share a common objective and embedding dimensionality, which allows a direct architectural comparison. Related shared-embedding models (Wav2CLIP, LAION-CLAP and ImageBind) and generative systems are discussed more briefly in Sections~\ref{subsec4.4} and~\ref{sec7}, and a broader survey of deep audio--visual learning is summarised in Section~\ref{subsec4.5}.
+
+%% ===================================================================
+\section{Background: Contrastive Multimodal Learning}\label{sec3}
+
+All models reviewed here follow the same template. Each modality $m$ has an encoder $f_m$ that maps a raw input to a feature vector, and a learnable linear projection $W_m$ that maps this feature into a shared $d$-dimensional space. Given a minibatch of $N$ paired samples $\{(x^{a}_i, x^{b}_i)\}_{i=1}^{N}$ from modalities $a$ and $b$, the normalised embeddings are
+
+\begin{equation}
+z^{m}_i = \frac{f_m(x^{m}_i)\,W_m}{\lVert f_m(x^{m}_i)\,W_m \rVert_2}, \qquad m \in \{a,b\}.
+\label{eq:embed}
+\end{equation}
+
+Because the embeddings have unit $L_2$ norm, their dot product equals their cosine similarity. The scaled similarity (logit) matrix $S^{(a,b)} \in \mathbb{R}^{N\times N}$ is
+
+\begin{equation}
+S^{(a,b)}_{ij} = \frac{z^{a}_i \cdot z^{b}_j}{\tau} = \exp(t)\,\big(z^{a}_i \cdot z^{b}_j\big), \qquad t = \log(1/\tau),
+\label{eq:logits}
+\end{equation}
+
+where $\tau$ is a learnable temperature. Diagonal entries correspond to matched pairs (positives) and off-diagonal entries to mismatched pairs (negatives). The symmetric InfoNCE loss~\cite{oord2018cpc,sohn2016npair} applies cross-entropy over rows and columns:
+
+\begin{equation}
+\mathcal{L}_{(a,b)} = -\frac{1}{2N}\sum_{i=1}^{N}\left[
+\log\frac{\exp(S^{(a,b)}_{ii})}{\sum_{j=1}^{N}\exp(S^{(a,b)}_{ij})}
++
+\log\frac{\exp(S^{(a,b)}_{ii})}{\sum_{j=1}^{N}\exp(S^{(a,b)}_{ji})}
+\right].
+\label{eq:infonce}
+\end{equation}
+
+The first term treats each sample of modality $a$ as a query that must retrieve its partner among the $N$ samples of modality $b$; the second term performs the reverse retrieval. Minimising Eq.~\eqref{eq:infonce} pulls matched pairs together and pushes mismatched pairs apart.
+
+Once trained, the shared space supports zero-shot classification. For $M$ test inputs and $K$ candidate class prompts (for example, ``the sound of a dog barking''), let $S^{*} \in \mathbb{R}^{M\times K}$ be the scaled similarity between the input embeddings and the prompt embeddings. For single-label tasks, class probabilities follow a softmax over prompts and the prediction is the argmax:
+
+\begin{equation}
+\hat{y}_{i,k} = \frac{\exp(S^{*}_{i,k})}{\sum_{j=1}^{K}\exp(S^{*}_{i,j})}, \qquad
+\hat{c}_i = \underset{k \in \{1,\ldots,K\}}{\operatorname{argmax}}\ \hat{y}_{i,k}.
+\label{eq:zeroshot}
+\end{equation}
+
+For multi-label tasks, where several sound events may co-occur, a sigmoid $\hat{y}_{i,k} = \sigma(S^{*}_{i,k})$ is applied to each score independently and a decision threshold is used.
+
+%% ===================================================================
+\section{Model-by-Model Analysis}\label{sec4}
+
+\subsection{CLIP: Image--Text Alignment}\label{subsec4.1}
+
+\textbf{Architecture.} CLIP~\cite{radford2021clip} uses two independent encoders. The image encoder is either a modified ResNet~\cite{he2016resnet} (ResNet-50, ResNet-101 and the scaled RN50x4, RN50x16 and RN50x64) or a Vision Transformer~\cite{dosovitskiy2021vit} (ViT-B/32, ViT-B/16, ViT-L/14 and ViT-L/14@336px). The ResNet variants add ResNet-D modifications and anti-aliased blur pooling, and replace global average pooling with a multi-head QKV attention-pooling layer. The ViT variants add a layer normalisation before the transformer.
+
+The text encoder is a Transformer~\cite{vaswani2017attention} with 12 layers, width 512 and 8 attention heads in its base configuration. Text is tokenised with lower-cased byte-pair encoding using a vocabulary of 49,152 tokens, and sequences are capped at 76 tokens~\cite{radford2021clip}. The activation at the end-of-sequence token is layer-normalised and projected into the shared space.
+
+The shared embedding dimension depends on the model variant: 1024 for RN50, 512 for RN101, ViT-B/32 and ViT-B/16, and 768 for ViT-L/14~\cite{radford2021clip}. % VERIFY against the released model cards.
+This matters for the models below: AudioCLIP adopts the RN50 configuration and therefore inherits a 1024-dimensional space.
+
+\textbf{Training.} CLIP is trained on approximately 400 million web-collected image--text pairs with Eq.~\eqref{eq:infonce}, where $a$ = image and $b$ = text. The temperature is initialised to $\tau = 0.07$ and the logit scale $\exp(t)$ is clipped at 100 for numerical stability~\cite{radford2021clip}.
+
+\subsection{AudioCLIP: Extending CLIP to Audio}\label{subsec4.2}
+
+\textbf{Architecture.} AudioCLIP~\cite{guzhov2022audioclip} keeps the pre-trained CLIP RN50 image encoder and text encoder and adds an audio branch based on ESResNeXt-50~\cite{guzhov2021esresnext}, a convolutional network of approximately 30 million parameters. ESResNeXt learns its own time--frequency representation through a trainable front-end based on complex frequency B-spline wavelets. Its classification head is replaced with a linear projection into CLIP's 1024-dimensional space, so that image, text and audio embeddings become directly comparable.
+
+\textbf{Training.} AudioCLIP is trained in three stages: (1) the audio encoder is pre-trained alone on AudioSet~\cite{gemmeke2017audioset}; (2) in cooperative pre-training, the CLIP encoders are frozen and act as teachers while the audio branch learns to match their embedding space; and (3) all three encoders are fine-tuned jointly on AudioSet audio clips, the corresponding video frames and their class names. Supervision therefore comes from class labels, not free-form captions.
+
+The objective sums three pairwise instances of Eq.~\eqref{eq:infonce}:
+
+\begin{equation}
+\mathcal{L}_{\mathrm{AudioCLIP}} = \mathcal{L}_{(I,T)} + \mathcal{L}_{(I,A)} + \mathcal{L}_{(T,A)},
+\label{eq:audioclip}
+\end{equation}
+
+where $I$, $T$ and $A$ denote image, text and audio. In the reference implementation, the audio--image and audio--text terms use their own learnable logit scales rather than sharing CLIP's single temperature. % VERIFY against the AudioCLIP code/paper before submission.
+
+\subsection{CLAP: Audio--Language Alignment}\label{subsec4.3}
+
+The name CLAP is used by two distinct models. This review analyses the Microsoft CLAP model of Elizalde et al.~\cite{elizalde2023clap}; the independently developed LAION-CLAP~\cite{wu2023laionclap} is discussed in Section~\ref{subsec4.4}.
+
+\textbf{Architecture.} The audio encoder is CNN14 from the PANNs family~\cite{kong2020panns}, with approximately 80.8 million parameters, producing 2048-dimensional features. Audio is represented as log-Mel spectrograms at 44.1~kHz with 64 Mel bins, a 1024-sample window and a 320-sample hop. The text encoder is BERT-base uncased~\cite{devlin2019bert} (approximately 110 million parameters), whose final-layer [CLS] representation gives a 768-dimensional feature; input text is truncated to a maximum length of 100. % VERIFY: tokens or characters.
+Two linear projections, $L_a$ and $L_t$, map both features into a shared 1024-dimensional space.
+
+\textbf{Training.} Both encoders are trained jointly with Eq.~\eqref{eq:infonce}, where $a$ = audio and $b$ = text. The temperature is reported as initialised to 0.007. % VERIFY: this is 10x smaller than CLIP's 0.07.
+Training uses about 128,010 audio--caption pairs drawn from FSD50K~\cite{fonseca2022fsd50k}, Clotho~\cite{drossos2020clotho}, AudioCaps~\cite{kim2019audiocaps} and MACS~\cite{martin2021macs}~\cite{elizalde2023clap}. Unlike AudioCLIP's class-label supervision, these captions describe what is heard in natural language, which gives richer semantic supervision.
+
+\subsection{Related Shared-Embedding Models}\label{subsec4.4}
+
+Several other models build audio-aware embedding spaces and are relevant to image-conditioned audio generation. Wav2CLIP~\cite{wu2022wav2clip} distils CLIP into an audio encoder using video frames as the bridge, without any text supervision. LAION-CLAP~\cite{wu2023laionclap} uses an HTS-AT audio encoder and a RoBERTa text encoder, projects into a 512-dimensional space and trains on about 630,000 audio--text pairs with feature fusion for variable-length audio and keyword-to-caption augmentation. ImageBind~\cite{girdhar2023imagebind} aligns six modalities, including image and audio, to a frozen image embedding space using naturally co-occurring pairs, and provides a direct image--audio shared space. These models are not analysed in detail here but are included in the comparison where figures are available.
+
+\subsection{Deep Audio--Visual Learning: A Survey}\label{subsec4.5}
+
+Zhu et al.~\cite{zhu2021deepav} present a survey of deep audio--visual learning rather than a single model or architecture. The survey organises the field into four research areas: audio--visual separation and localisation, audio--visual correspondence learning, audio--visual generation, and audio--visual representation learning.
+
+\textbf{Audio--visual separation and localisation.} This area focuses on separating specific sounds and associating them with their corresponding visible objects or speakers. Visual information, such as lip movements, can provide cues for isolating speech, while audio--visual localisation links a sound to its position or source in the visual scene.
+
+\textbf{Audio--visual correspondence learning.} Correspondence learning examines whether audio and visual inputs belong together. The survey discusses matching and retrieval tasks, as well as temporal synchronisation. It distinguishes audio--visual correspondence (AVC), which considers whether the audio and visual content correspond semantically, from audio--visual temporal synchronisation (AVTS), which considers whether events occur at matching times.
+
+\textbf{Audio--visual generation.} The survey divides generation into vision-to-audio and audio-to-vision tasks. Vision-to-audio approaches include generating speech from lip sequences and generating general sound from video by using visible motion and other visual cues. Audio-to-vision approaches include image generation and the generation of facial, talking-face, body-motion or dance sequences from audio.
+
+\textbf{Audio--visual representation learning.} The survey distinguishes single-modality and dual-modality representation learning. In single-modality representation learning, one modality provides supervisory information for learning a representation in another modality. In dual-modality representation learning, both audio and visual representations are learned using their paired correspondence.
+
+%% ===================================================================
+\section{Comparative Analysis}\label{sec5}
+
+% NOTE TO AUTHORS: Fig. 1 is a placeholder. Draw a side-by-side schematic
+% (encoders -> projection -> shared space -> contrastive loss) for the three
+% models, save it as fig_architectures.pdf and uncomment the block below.
+% \begin{figure*}[t]
+% \centering
+% \includegraphics[width=\textwidth]{fig_architectures.pdf}
+% \caption{Architectures of CLIP, AudioCLIP and CLAP. Each modality-specific encoder feeds a linear projection into a shared embedding space trained with the symmetric contrastive loss of Eq.~\eqref{eq:infonce}.}
+% \label{fig:architectures}
+% \end{figure*}
+
+Table~\ref{tab:comparison} summarises the three models.
+
+\begin{table*}[t]
+\caption{Comparison of CLIP, AudioCLIP and CLAP. Zero-shot accuracies are as reported in the original papers.}
+\label{tab:comparison}
+\centering
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{2.6cm}p{4.1cm}p{4.1cm}p{4.1cm}@{}}
+\toprule
+ & \textbf{CLIP}~\cite{radford2021clip} & \textbf{AudioCLIP}~\cite{guzhov2022audioclip} & \textbf{CLAP}~\cite{elizalde2023clap} \\
+\midrule
+Modalities & Image, text & Image, text, audio & Audio, text \\
+Image encoder & ResNet or ViT & CLIP RN50 & -- \\
+Text encoder & Transformer (12 layers) & CLIP Transformer & BERT-base \\
+Audio encoder & -- & ESResNeXt-50 ($\sim$30M) & CNN14 ($\sim$80.8M) \\
+Embedding dimension & 512--1024 (variant-dependent) & 1024 & 1024 \\
+Training data & $\sim$400M image--text pairs & AudioSet clips, frames and class labels & $\sim$128k audio--caption pairs \\
+Supervision & Web captions & Class labels & Natural-language captions \\
+Training procedure & Joint, from scratch & Three-stage, CLIP initialised & Joint \\
+Zero-shot ESC-50~\cite{piczak2015esc} & -- & 69.4\% & 82.6\% \\
+Zero-shot UrbanSound8K~\cite{salamon2014urbansound} & -- & 68.8\% & 73.2\% \\
+\botrule
+\end{tabular*}
+% VERIFY all zero-shot figures against the original result tables.
+\end{table*}
+
+\textbf{RQ1: constructing the shared space.} All three models construct their shared space in the same way: modality-specific encoders, learnable linear projections, $L_2$ normalisation and a symmetric contrastive loss (Eqs.~\eqref{eq:embed}--\eqref{eq:infonce}). They differ in which modality pairs they align. CLIP aligns image and text only. AudioCLIP adds audio by projecting it into CLIP's existing space, which gives an image--audio link through shared anchors. CLAP builds a separate audio--text space with no visual modality. Consequently, only AudioCLIP (and, among related models, Wav2CLIP and ImageBind) provides a direct image--audio space; a pipeline using CLIP and CLAP must bridge two spaces through text or a learned mapping, as V2A-Mapper does~\cite{wang2024v2amapper}.
+
+\textbf{RQ2: architectures and objectives.} The objective is essentially identical across models; the differences lie in encoders, initialisation and supervision. Image encoders are ResNet or ViT. Audio encoders are convolutional (ESResNeXt, CNN14), operating on learned wavelet or log-Mel representations. Text encoders are Transformers trained from scratch (CLIP) or pre-trained (BERT in CLAP). AudioCLIP's staged training reuses CLIP's knowledge at the cost of a fixed embedding geometry, whereas CLAP trains both encoders jointly. The ESC-50 results in Table~\ref{tab:comparison} suggest that caption-level supervision on a small, clean dataset (CLAP) can outperform class-label supervision on a much larger one (AudioCLIP), although the two models also differ in architecture and training procedure.
+
+%% ===================================================================
+\section{Challenges and Limitations}\label{sec6}
+
+\subsection{CLIP}
+
+CLIP's zero-shot transfer is strong but uneven. Its authors estimate that around a 1000-fold increase in compute would be needed for zero-shot CLIP to reach overall state-of-the-art performance~\cite{radford2021clip}. It performs poorly on fine-grained categories (aircraft variants, car models, flower species), on systematic tasks such as object counting, and on out-of-distribution data; its zero-shot MNIST accuracy of about 88\% is below that of logistic regression on raw pixels~\cite{radford2021clip}.
+
+Zero-shot prediction is closed-set, limited to the supplied prompts, and is affected by polysemy in class names. Moving from zero-shot to few-shot learning through linear probing can reduce accuracy when very few labelled examples are available. Training on web-scraped data also introduces social biases related to gender, race and occupation, and the ease of building custom classifiers raises misuse concerns such as surveillance~\cite{radford2021clip}.
+
+\subsection{AudioCLIP}
+
+AudioCLIP's main constraint is data. CLIP was trained on about 400 million image--text pairs, whereas AudioCLIP relies on AudioSet's roughly two million clips~\cite{gemmeke2017audioset}, which raises the risk of overfitting and requires augmentation such as additive noise and random cropping~\cite{guzhov2022audioclip}.
+
+Its supervision is also weak at the clip level. AudioSet labels are assigned to whole 10-second clips, so a clip labelled ``dog'' may contain only a one-second bark among other sounds. The text side consists of class names rather than descriptions, which limits the semantic detail the audio branch can learn.
+
+Joint fine-tuning creates a trade-off: updating CLIP's encoders on AudioSet frames and labels can shift the original image--text embedding distribution and reduce performance on vision benchmarks such as ImageNet~\cite{guzhov2022audioclip}. Finally, processing fixed-length clips with a convolutional backbone limits modelling of long-range temporal structure.
+
+\subsection{CLAP}
+
+CLAP performs well on sound-event classification and audio--text retrieval but poorly on speech tasks such as emotion recognition and keyword spotting~\cite{elizalde2023clap}. Its training captions mostly describe environmental sounds and acoustic scenes and rarely cover spoken content, speakers or emotion.
+
+Data quality matters more than quantity. Adding about 1.7 million noisy pairs built from AudioSet video titles and tags reduced zero-shot ESC-50 accuracy from 82.6\% to 67.15\%~\cite{elizalde2023clap}. Zero-shot accuracy is also sensitive to prompt wording, with template changes producing around 5\% variation on ESC-50, and increasing the batch size from 256 to 768 unexpectedly reduced performance~\cite{elizalde2023clap}. % VERIFY the 5% and batch-size figures.
+
+\subsection{Summary of Limitations}
+
+Table~\ref{tab:limitations} groups these limitations by category. Cells are left as ``Not reported'' where the original work does not discuss the issue.
+
+\begin{table*}[t]
+\caption{Major challenges and limitations of CLIP, AudioCLIP and CLAP.}
+\label{tab:limitations}
+\centering
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{2.5cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
+\toprule
+\textbf{Limitation Category} & \textbf{CLIP} & \textbf{AudioCLIP} & \textbf{CLAP} \\
+\midrule
+
+Computational Requirements
+&
+Around 1000$\times$ more compute estimated for state-of-the-art zero-shot performance.
+&
+Three-stage training of three encoders.
+&
+Not reported.
+\\
+
+Data Availability and Quality
+&
+Web-scraped image--text pairs with noisy associations.
+&
+AudioSet is far smaller than CLIP's data, raising overfitting risk.
+&
+Adding noisy metadata-based pairs reduces accuracy despite more data.
+\\
+
+Cross-Modal Alignment
+&
+Polysemy and ambiguous prompts cause incorrect associations.
+&
+Clip-level class labels do not localise the sound event within a clip.
+&
+Captions cover environmental sounds but rarely speech content.
+\\
+
+Generalization
+&
+Weak on fine-grained, counting and out-of-distribution tasks.
+&
+Fine-tuning can degrade CLIP's original vision performance.
+&
+Poor transfer to speech emotion and keyword spotting.
+\\
+
+Task-Specific Limitations
+&
+Closed-set prompts; inconsistent few-shot adaptation.
+&
+Fixed-length clips limit long-range temporal modelling.
+&
+Sensitive to prompt wording and batch size.
+\\
+
+Bias and Safety
+&
+Social biases from web data; potential misuse in surveillance.
+&
+Not reported.
+&
+Not reported.
+\\
+\botrule
+\end{tabular*}
+\end{table*}
+
+Across models, the limitations follow the modalities and supervision involved. CLIP is limited mainly by compute, fine-grained understanding and web-data bias; AudioCLIP by the scale and granularity of audio supervision; and CLAP by the coverage and quality of its captions.
+
+%% ===================================================================
+\section{From Representation to Generation: Research Gap and Future Directions}\label{sec7}
+
+\subsection{Existing Image- and Video-to-Audio Generation}
+
+Contrastive embeddings are already widely used to condition audio generators. AudioLDM~\cite{liu2023audioldm} and Make-An-Audio~\cite{huang2023makeanaudio} condition latent diffusion models on CLAP embeddings, allowing text- and audio-driven generation. SpecVQGAN~\cite{iashin2021specvqgan} generates spectrograms autoregressively from visual features. Im2Wav~\cite{sheffer2023im2wav} conditions a two-stage audio language model directly on CLIP image embeddings, and V2A-Mapper~\cite{wang2024v2amapper} learns a lightweight mapping from CLIP space into CLAP space to drive AudioLDM. For video, Diff-Foley~\cite{luo2023difffoley}, FoleyCrafter~\cite{zhang2024foleycrafter}, Seeing-and-Hearing~\cite{xing2024seeing} and MMAudio~\cite{cheng2025mmaudio} add temporal synchronisation between visual events and sound.
+
+Image-conditioned audio generation is therefore not an unexplored problem. The reviewed representation models serve as its conditioning backbone: a visual encoder (CLIP or ImageBind) supplies scene semantics, an audio--language space (CLAP) provides an acoustic vocabulary, and a diffusion or autoregressive decoder produces the waveform.
+
+\subsection{Remaining Gaps for Interactive Applications}
+
+The limitations in Section~\ref{sec6} point to specific gaps that matter for games and virtual environments:
+
+\begin{itemize}
+\item \textbf{Multi-source scene soundscapes.} Current generators typically produce one dominant sound per image. A railway-station scene needs several layered sources (trains, announcements, crowd noise) with plausible relative levels, which clip-level supervision such as AudioSet's does not teach.
+\item \textbf{Real-time and continuous generation.} Diffusion-based generators are too slow for frame-rate interaction, and fixed-length clip generation does not support seamless, continuous ambience.
+\item \textbf{Controllability and spatial audio.} Interactive use requires control over loudness, source position and changes as the scene evolves, which current image-conditioned models do not expose.
+\item \textbf{Evaluation.} There is no standard benchmark for how well generated audio matches a static visual scene, as opposed to a text prompt or a video.
+\end{itemize}
+
+\subsection{Future Research Directions}
+
+Table~\ref{tab:future} lists research directions arising from the limitations of each model, together with directions specific to generation. For representation learning, the main levers are better supervision rather than scale alone: hybrid contrastive--generative objectives and more sample-efficient training for CLIP-like models; transformer audio backbones such as the Audio Spectrogram Transformer \cite{gong2021ast} and finer-grained audio--visual--text annotations for AudioCLIP-like models; and speech-aware captions and automatic acoustic captioning to replace weak metadata for CLAP-like models. For generation, scene-level, real-time and controllable synthesis are the most relevant directions for interactive media.
+
+\begin{table*}[t]
+\caption{Future research directions for contrastive multimodal representation learning and image-conditioned audio generation.}
+\label{tab:future}
+\centering
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{2.5cm}p{5.1cm}p{7.5cm}@{}}
+\toprule
+\textbf{Area} & \textbf{Research Direction} & \textbf{Objective} \\
+\midrule
+
+CLIP
+&
+Hybrid contrastive--generative learning
+&
+Combine discriminative alignment with open-ended captioning ability.
+\\
+
+CLIP
+&
+Data efficiency and few-shot adaptation
+&
+Use self-supervision, self-training and zero-shot priors to reduce data needs and improve few-shot learning.
+\\
+
+CLIP
+&
+Robustness and bias mitigation
+&
+Develop zero-shot benchmarks and standard bias detection and mitigation methods.
+\\
+
+AudioCLIP
+&
+Transformer backbones
+&
+Replace ResNet and ESResNeXt with ViT and Audio Spectrogram Transformer encoders.
+\\
+
+AudioCLIP
+&
+Fine-grained multimodal annotation
+&
+Localise sound events in time and describe them in text to improve audio--visual alignment.
+\\
+
+CLAP
+&
+Speech-oriented supervision
+&
+Add captions describing spoken content, speakers and emotion.
+\\
+
+CLAP
+&
+Automated acoustic captioning
+&
+Generate accurate captions for large datasets to replace noisy metadata.
+\\
+
+Generation
+&
+Scene-level, real-time and controllable synthesis
+&
+Generate layered, continuous and spatially controllable soundscapes from images at interactive speeds.
+\\
+
+Generation
+&
+Image--audio evaluation
+&
+Define benchmarks and metrics for semantic and acoustic consistency between an image and generated audio.
+\\
+
+\botrule
+\end{tabular*}
+\end{table*}
+
+%% ===================================================================
+\section{Conclusion}\label{sec8}
+
+This review examined CLIP, AudioCLIP and CLAP as foundations for image-conditioned audio generation. All three construct shared embedding spaces with modality-specific encoders, linear projections and the same symmetric InfoNCE objective (RQ1, RQ2). They differ mainly in the modality pairs aligned, encoder initialisation and the form of supervision, and the evidence suggests that caption quality influences alignment more than dataset size (RQ3).
+
+These embeddings already condition existing image- and video-to-audio generators. The open problems are therefore not whether audio can be generated from images, but how to generate layered, continuous, controllable soundscapes at interactive speeds and how to evaluate them. Addressing these gaps would move interactive environments closer to audio that adapts to visual context rather than depending entirely on manually designed sound assets.
+
+
+\section*{Declarations}
+
+% NOTE TO AUTHORS: confirm each statement below and complete the author
+% contribution statement before submission.
+
+\begin{itemize}
+\item \textbf{Funding:} Not applicable.
+\item \textbf{Conflict of interest/Competing interests:} The authors declare no competing interests.
+\item \textbf{Ethics approval and consent to participate:} Not applicable.
+\item \textbf{Consent for publication:} Not applicable.
+\item \textbf{Data availability:} Not applicable. No new data were generated or analysed in this review.
+\item \textbf{Materials availability:} Not applicable.
+\item \textbf{Code availability:} Not applicable.
+\item \textbf{Author contribution:} [To be completed by the authors.]
+\end{itemize}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\
+% \bibliographystyle{bst/sn-mathphys-num}
+\bibliography{sn-bibliography}
+
+\end{document}
